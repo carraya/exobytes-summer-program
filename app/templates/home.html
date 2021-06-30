@@ -1,0 +1,745 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exobytes 80708X</title>
+    <link rel="stylesheet" href="{% static 'app/css/custom.css' %}" />
+  </head>
+  <body class="has-animations">
+    <div class="body-wrap">
+      <header class="site-header reveal-from-bottom">
+        <div class="container">
+          <div class="site-header-inner">
+            <!-- <div class="brand">
+              <h1 class="m-0">
+                <a href="index.html"
+                  ><img src="{% static 'app/images/circuit_logo-removebg.png' %}" alt="Cube" width="64" height="64"
+                /></a>
+              </h1>
+            </div> -->
+            <button
+              id="header-nav-toggle"
+              class="header-nav-toggle"
+              aria-controls="primary-menu"
+              aria-expanded="false"
+            >
+              <span class="screen-reader">Menu</span>
+              <span class="hamburger"
+                ><span class="hamburger-inner"></span
+              ></span>
+            </button>
+            <nav id="header-nav" class="header-nav">
+              <div class="header-nav-inner">
+                {% if user.is_authenticated %}
+                <ul class="list-reset text-xxs header-nav-right">
+                  <li><a href="{% url 'logout' %}">Log Out</a></li>
+                </ul>
+                {% else %}
+                <ul class="list-reset text-xxs header-nav-right">
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+                {% endif %} {% if user.is_authenticated %}
+                <ul class="list-reset header-nav-right">
+                  <li>
+                    <a
+                      class="button button-primary button-wide-mobile button-sm"
+                      href="{% url 'dashboard' %}"
+                      style="color: black"
+                      >My Dashboard</a
+                    >
+                  </li>
+                </ul>
+                {% else %}
+                <ul class="list-reset header-nav-right">
+                  <li>
+                    <a
+                      class="button button-primary button-wide-mobile button-sm"
+                      href="{% url 'signup' %}"
+                      style="color: black"
+                      >Sign up</a
+                    >
+                  </li>
+                </ul>
+                {% endif %}
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="site-content">
+        <section class="hero section center-content illustration-section-01">
+          <div class="container-sm">
+            <div class="hero-inner section-inner">
+              <div class="hero-content">
+                <h1
+                  class="mt-0 mb-16 reveal-from-bottom"
+                  data-reveal-delay="200"
+                >
+                  Welcome!
+                </h1>
+                <div class="container-xs">
+                  <p
+                    class="mt-0 mb-32 reveal-from-bottom"
+                    data-reveal-delay="400"
+                  >
+                    The VEX Robotics team 80708X Exobytes based in Virginia was
+                    established in 2018. The team is composed of rising seniors,
+                    some of which have participated in VEX Robotics since 6th
+                    grade. Every year the team has qualified for the World
+                    Championship. In addition, they have won numerous national
+                    and international awards over the past three seasons. Every
+                    year, the students on the team strive for continuous
+                    improvement and always give their all to achieve their
+                    goals.
+                  </p>
+                  <div class="reveal-from-bottom" data-reveal-delay="600">
+                    <a
+                      class="button button-primary button-wide-mobile"
+                      href="#"
+                      style="color: black"
+                      >About the Team</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="hero-figure reveal-from-bottom illustration-element-01"
+                data-reveal-value="20px"
+                data-reveal-delay="800"
+              >
+                <img
+                  class="has-shadow"
+                  src="{% static 'app/images/circuit_logo-removebg.png' %}"
+                  alt="Hero image"
+                  width="896"
+                  height="504"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="clients section reveal-fade">
+          <div class="container">
+            <div class="clients-inner section-inner has-bottom-divider">
+              <!-- <ul class="list-reset">
+                <li><img src="{% static 'app/images/clients-01.svg' %}" alt="Clients 01" /></li>
+                <li><img src="{% static 'app/images/clients-02.svg' %}" alt="Clients 02" /></li>
+                <li><img src="{% static 'app/images/clients-03.svg' %}" alt="Clients 03" /></li>
+                <li><img src="{% static 'app/images/clients-04.svg' %}" alt="Clients 04" /></li>
+                <li><img src="{% static 'app/images/clients-05.svg' %}" alt="Clients 05" /></li>
+              </ul> -->
+            </div>
+          </div>
+        </section>
+        <!-- <section class="features-tiles section">
+          <div class="container">
+            <div class="features-tiles-inner section-inner">
+              <div class="tiles-wrap">
+                <div class="tiles-item reveal-from-bottom">
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-01.svg' %}"
+                          alt="Feature tile icon 01"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="200"
+                >
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-02.svg' %}"
+                          alt="Feature tile icon 02"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="400"
+                >
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-03.svg' %}"
+                          alt="Feature tile icon 03"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="tiles-item reveal-from-bottom">
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-04.svg' %}"
+                          alt="Feature tile icon 04"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="200"
+                >
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-05.svg' %}"
+                          alt="Feature tile icon 05"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="400"
+                >
+                  <div class="tiles-item-inner">
+                    <div class="features-tiles-item-header">
+                      <div class="features-tiles-item-image mb-16">
+                        <img
+                          src="{% static 'app/images/feature-tile-icon-06.svg' %}"
+                          alt="Feature tile icon 06"
+                          width="64"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="features-tiles-item-content">
+                      <h4 class="mt-0 mb-8">Join the system</h4>
+                      <p class="m-0 text-sm">
+                        A pseudo-Latin text used in web design, layout, and
+                        printing in place of things to emphasise design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+        <section class="section center-content">
+          <div class="container">
+            <div class="section-inner has-top-divider">
+              <div class="section-header reveal-from-bottom">
+                <div class="container-xs">
+                  <h2 class="m-0 mb-16">Exobytes Summer Program</h2>
+                  <p class="m-0">
+                    This year, team Exobytes has decided that this summer they
+                    will be spreading their knowledge on programming and
+                    building to others that wish to learn. They will provide 3
+                    course levels regarding topics ranging from subsystems to
+                    advanced motion algorithms.
+                  </p>
+                </div>
+              </div>
+              <div class="reveal-from-bottom">
+                <div class="container">
+                  <div class="cta-inner section-inner cta-split">
+                    {% if user.is_authenticated %}
+                    <div class="cta-slogan">
+                      <h3 class="m-0" style="color: black">
+                        Take a look at the dashboard!
+                      </h3>
+                    </div>
+                    <div class="cta-action">
+                      <a
+                        class="button button-wide-mobile"
+                        href="{% url 'dashboard' %}"
+                        style="color: black"
+                        >Dashboard</a
+                      >
+                    </div>
+                    {% else %}
+                    <div class="cta-slogan">
+                      <h3 class="m-0" style="color: black">
+                        Join to grow your robotics knowledge!
+                      </h3>
+                    </div>
+                    <div class="cta-action">
+                      <a
+                        class="button button-wide-mobile"
+                        href="{% url 'signup' %}"
+                        style="color: black"
+                        >Sign Up</a
+                      >
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="reveal-from-bottom">
+                <a
+                  class="modal-trigger"
+                  aria-controls="modal-01"
+                  data-video="https://player.vimeo.com/video/174002812"
+                  href="#"
+                  ><img
+                    class="has-shadow"
+                    src="{% static 'app/images/video-placeholder.svg' %}"
+                    alt="Video"
+                    width="712"
+                    height="400"
+                /></a>
+              </div> -->
+              <div id="modal-01" class="modal modal-video">
+                <div class="modal-inner">
+                  <div class="responsive-video">
+                    <iframe
+                      src="#"
+                      frameborder="0"
+                      webkitallowfullscreen
+                      mozallowfullscreen
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="features-split section">
+          <div class="container">
+            <div class="features-split-inner section-inner has-top-divider">
+              <div class="section-header center-content">
+                <div class="container-xs">
+                  <h2 class="mt-0 mb-16">Awards</h2>
+                  <p class="m-0">Awards Description</p>
+                </div>
+              </div>
+              <div class="split-wrap invert-mobile">
+                <div class="split-item">
+                  <div
+                    class="
+                      split-item-content
+                      center-content-mobile
+                      reveal-from-left
+                    "
+                    data-reveal-container=".split-item"
+                    style="text-align: center"
+                  >
+                    <h3 class="mt-0 mb-12">Change Up | 2020-2021</h3>
+                    <h5>Regional Level</h5>
+                    <p>Excellence Award (x1)</p>
+                    <p>Tournament Champion (x2)</p>
+                    <p>Skills Champion (x2)</p>
+                    <h5>State Level</h5>
+                    <p>Skills Champion (x1)</p>
+                    <h5>National Level</h5>
+                    <p>Excellence Award (x2)</p>
+                  </div>
+                  <div
+                    class="
+                      split-item-image split-item-image-fill
+                      reveal-from-bottom
+                    "
+                    data-reveal-container=".split-item"
+                  >
+                    <img
+                      class="has-shadow"
+                      src="{% static 'app/images/changeup_awards.JPG' %}"
+                      alt="Features split image 01"
+                      width="528"
+                      height="396"
+                    />
+                  </div>
+                </div>
+                <div class="split-item">
+                  <div
+                    class="
+                      split-item-content
+                      center-content-mobile
+                      reveal-from-right
+                    "
+                    data-reveal-container=".split-item"
+                    style="text-align: center"
+                  >
+                    <h3 class="mt-0 mb-12">Tower Takeover | 2019-2020</h3>
+                    <h5>Regional Level</h5>
+                    <p>Excellence Award (x4)</p>
+                    <p>Tournament Champion (x3)</p>
+                    <p>Skills Champion (x4)</p>
+                    <h5>State Level</h5>
+                    <p>Excellence Award (x1)</p>
+                    <p>Tournament Finalist (x1)</p>
+                    <p>Skills Champion (x1)</p>
+                  </div>
+                  <div
+                    class="
+                      split-item-image split-item-image-fill
+                      reveal-from-left
+                    "
+                    data-reveal-container=".split-item"
+                  >
+                    <img
+                      class="has-shadow"
+                      src="{% static 'app/images/tt_awards.JPG' %}"
+                      alt="Features split image 02"
+                      width="528"
+                      height="396"
+                    />
+                  </div>
+                </div>
+                <div class="split-item">
+                  <div
+                    class="
+                      split-item-content
+                      center-content-mobile
+                      reveal-from-left
+                    "
+                    data-reveal-container=".split-item"
+                    style="text-align: center"
+                  >
+                    <h3 class="mt-0 mb-12">Turning Point | 2018-2019</h3>
+                    <h5>Regional Level</h5>
+                    <p>Excellence Award (x2)</p>
+                    <p>Tournament Champion (x2)</p>
+                    <p>Skills Champion (x2)</p>
+                    <h5>State Level</h5>
+                    <p>Excellence Award (x1)</p>
+                    <p>Skills Champion (x1)</p>
+                    <h5>National Level</h5>
+                    <p>Think Award (x2)</p>
+                    <p>Skills Finalist (x1)</p>
+                    <h5>International Level</h5>
+                    <p>Innovate Award (x1)</p>
+                  </div>
+                  <div
+                    class="
+                      split-item-image split-item-image-fill
+                      reveal-from-bottom
+                    "
+                    data-reveal-container=".split-item"
+                  >
+                    <img
+                      class="has-shadow"
+                      src="{% static 'app/images/tp_awards.JPG' %}"
+                      alt="Features split image 03"
+                      width="528"
+                      height="396"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% if user.is_authenticated %}
+        <section class="pricing section">
+          <div class="container">
+            <div class="pricing-inner section-inner has-top-divider">
+              <div class="section-header center-content">
+                <div class="container-xs">
+                  <h2 class="mt-0 mb-16">Summer Program Course Details</h2>
+                  <p class="m-0">
+                    Purchase up to three courses ranging from beginner to
+                    advanced.
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="pricing-switcher center-content">
+                <label class="form-switch"
+                  ><input type="checkbox" checked="checked" />
+                  <span class="form-switch-icon"></span>
+                  <span>Toggle 1</span>
+                  <span>Toggle 2</span></label
+                >
+              </div> -->
+              <div class="tiles-wrap">
+                <div class="tiles-item reveal-from-bottom">
+                  <div class="tiles-item-inner has-shadow">
+                    <div class="pricing-item-content">
+                      <div class="pricing-item-header pb-24 mb-24">
+                        <div
+                          class="pricing-item-price mb-4"
+                          data-price-output='{
+                                            "0": ["$", "10", ".00"],
+                                            "1": ["$", "5", ".00"]
+                                        }'
+                        >
+                          <span class="pricing-item-price-currency h2">$</span
+                          ><span class="pricing-item-price-amount h1">25</span
+                          ><span class="pricing-item-price-after text-xs"
+                            >.00</span
+                          >
+                        </div>
+                        <div class="text-xs text-color-low">*NO PREREQUISITE</div>
+                      </div>
+                      <div class="pricing-item-features mb-40">
+                        <div
+                          class="
+                            pricing-item-features-title
+                            h6
+                            text-xs text-color-high
+                            mb-24
+                          "
+                        >
+                          Subsystems Course
+                        </div>
+                        <ul
+                          class="
+                            pricing-item-features-list
+                            list-reset
+                            text-xs
+                            mb-32
+                          "
+                        >
+                          <li class="is-checked">Sensor Basics</li>
+                          <li class="is-checked">Build Quality</li>
+                          <li class="is-checked">Basic Subsystem Programming</li>
+                          <li class="is-checked">Subsystem Thread Structure</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pricing-item-cta mb-8">
+                      <a
+                        class="button button-primary button-block"
+                        href="https://paypal.me/JL80708"
+                        style="color: black"
+                        >Purchase</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="200"
+                >
+                  <div class="tiles-item-inner has-shadow">
+                    <div class="pricing-item-content">
+                      <div class="pricing-item-header pb-24 mb-24">
+                        <div
+                          class="pricing-item-price mb-4"
+                          data-price-output='{
+                                            "0": ["$", "20", ".00"],
+                                            "1": ["$", "15", ".00"]
+                                        }'
+                        >
+                          <span class="pricing-item-price-currency h2">$</span
+                          ><span class="pricing-item-price-amount h1">25</span
+                          ><span class="pricing-item-price-after text-xs"
+                            >.00</span
+                          >
+                        </div>
+                        <div class="text-xs text-color-low">*NO PREREQUISITE</div>
+                      </div>
+                      <div class="pricing-item-features mb-40">
+                        <div
+                          class="
+                            pricing-item-features-title
+                            h6
+                            text-xs text-color-high
+                            mb-24
+                          "
+                        >
+                          Motion Level 1 Course
+                        </div>
+                        <ul
+                          class="
+                            pricing-item-features-list
+                            list-reset
+                            text-xs
+                            mb-32
+                          "
+                        >
+                          <li class="is-checked">Sensors Relevant to Motion</li>
+                          <li class="is-checked">Intro to Slew Rate</li>
+                          <li class="is-checked">PID Control</li>
+                          <li class="is-checked">
+                            Stop Conditions and PID Applications
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pricing-item-cta mb-8">
+                      <a
+                        class="button button-primary button-block"
+                        href="https://paypal.me/JL80708"
+                        style="color: black"
+                        >Purchase</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tiles-item reveal-from-bottom"
+                  data-reveal-delay="400"
+                >
+                  <div class="tiles-item-inner has-shadow">
+                    <div class="pricing-item-content">
+                      <div class="pricing-item-header pb-24 mb-24">
+                        <div
+                          class="pricing-item-price mb-4"
+                          data-price-output='{
+                                            "0": ["$", "30", ".00"],
+                                            "1": ["$", "25", ".00"]
+                                        }'
+                        >
+                          <span class="pricing-item-price-currency h2">$</span
+                          ><span class="pricing-item-price-amount h1">25</span
+                          ><span class="pricing-item-price-after text-xs"
+                            >.00</span
+                          >
+                        </div>
+                        <div class="text-xs text-color-low">
+                          *PREREQUISITE OF TRIGONOMETRY
+                        </div>
+                      </div>
+                      <div class="pricing-item-features mb-40">
+                        <div
+                          class="
+                            pricing-item-features-title
+                            h6
+                            text-xs text-color-high
+                            mb-24
+                          "
+                        >
+                          Motion Level 2 Course
+                        </div>
+                        <ul
+                          class="
+                            pricing-item-features-list
+                            list-reset
+                            text-xs
+                            mb-32
+                          "
+                        >
+                          <li class="is-checked">Odometry</li>
+                          <li class="is-checked">Three Wheel Odometry</li>
+                          <li class="is-checked">
+                            First Basic Motion Algorithms
+                          </li>
+                          <li class="is-checked">Advanced Motion Algorithms</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="pricing-item-cta mb-8">
+                      <a
+                        class="button button-primary button-block"
+                        href="https://paypal.me/JL80708"
+                        style="color: black"
+                        >Purchase</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% endif %}
+      </main>
+      <footer class="site-footer center-content-mobile">
+        <div class="container">
+          <div class="site-footer-inner">
+            <div class="footer-top space-between text-xxs">
+              <div class="brand"></div>
+              <div class="footer-social">
+                <ul class="list-reset">
+                  <li>
+                    <a href="https://www.instagram.com/exobytes/"
+                      ><svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title>Instagram</title>
+                        <g>
+                          <circle cx="12.145" cy="3.892" r="1" />
+                          <path
+                            d="M8 12c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm0-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z"
+                          />
+                          <path
+                            d="M12 16H4c-2.056 0-4-1.944-4-4V4c0-2.056 1.944-4 4-4h8c2.056 0 4 1.944 4 4v8c0 2.056-1.944 4-4 4zM4 2c-.935 0-2 1.065-2 2v8c0 .953 1.047 2 2 2h8c.935 0 2-1.065 2-2V4c0-.935-1.065-2-2-2H4z"
+                          />
+                        </g></svg
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="footer-bottom space-between text-xxs invert-order-desktop"
+            >
+              <nav class="footer-nav">
+                <ul class="list-reset">
+                  <li><a href="mailto:vexexobytes.gmail.com">Contact</a></li>
+                  <!-- <li><a href="#">About us</a></li>
+                  <li><a href="#">FAQ's</a></li> -->
+                  <li><a href="mailto:vexexobytes.gmail.com">Support</a></li>
+                </ul>
+              </nav>
+              <div class="footer-copyright">
+                &copy; 2021 CJARRAYA, all rights reserved
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="{% static 'app/js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exobytes 80708X</title>
+    <link rel="stylesheet" href="{% static 'app/css/custom.css' %}" />
+  </head>
+  <body>
+    <div class="body-wrap">
+      <header class="site-header">
+        <div class="container">
+          <div class="site-header-inner">
+            <!-- <div class="brand">
+              <h1 class="m-0">
+                <a href="index.html"
+                  ><img src="{% static 'app/images/circuit_logo-removebg.png' %}" alt="Cube" width="64" height="64"
+                /></a>
+              </h1>
+            </div> -->
+            <button
+              id="header-nav-toggle"
+              class="header-nav-toggle"
+              aria-controls="primary-menu"
+              aria-expanded="false"
+            >
+              <span class="screen-reader">Menu</span>
+              <span class="hamburger"
+                ><span class="hamburger-inner"></span
+              ></span>
+            </button>
+            <nav id="header-nav" class="header-nav">
+              <div class="header-nav-inner">
+                <ul class="list-reset text-xxs header-nav-right">
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="site-content">
+        <section class="signin section illustration-section-01">
+          <div class="container-xs">
+            <div class="signin-inner section-inner">
+              <div class="section-header center-content">
+                <h1 class="m-0">
+                  Sign up for the Exobytes Summer Program.
+                </h1>
+              </div>
+              <div class="tiles-wrap">
+                <div class="tiles-item">
+                  <div class="tiles-item-inner">
+                    <form method="POST" action="">
+                      {% csrf_token %}
+                      {{ form.errors }}
+                      <fieldset>
+                        <div class="mb-12">
+                          <label class="form-label screen-reader" for="username"
+                            >Full name</label
+                          >
+                          <!-- <input
+                            id="username"
+                            class="form-input"
+                            type="username"
+                            placeholder="Full name"
+                            required
+                          /> -->
+                          <h6 style="margin: 0;">Username</h6>
+                          <div class="form-input-div">
+                            {{form.username}}
+                          </div>
+                          <!-- {{form.fullname}} -->
+                        </div>
+                        <div class="mb-12">
+                          <label class="form-label screen-reader" for="email"
+                            >Email</label
+                          >
+                          <!-- <input
+                            id="email"
+                            class="form-input"
+                            type="email"
+                            placeholder="Email"
+                            required
+                          /> -->
+                          <h6 style="margin: 0;">Email</h6>
+                          <div class="form-input-div">
+                            {{form.email}}
+                          </div>
+                          <!-- {{form.email}} -->
+                        </div>
+                        <div class="mb-12">
+                          <label class="form-label screen-reader" for="password"
+                            >Password</label
+                          >
+                          <!-- <input
+                            id="password"
+                            class="form-input"
+                            type="password"
+                            placeholder="Password"
+                            required
+                          /> -->
+                          <h6 style="margin: 0;">Password</h6>
+                          <div class="form-input-div">
+                            {{form.password1}}
+                          </div>
+                          <!-- {{form.password}} -->
+                        </div>
+                        <div class="mb-12">
+                          <label class="form-label screen-reader" for="password"
+                            >Password</label
+                          >
+                          <!-- <input
+                            id="password"
+                            class="form-input"
+                            type="password"
+                            placeholder="Password"
+                            required
+                          /> -->
+                          <h6 style="margin: 0;">Confirm Password</h6>
+                          <div class="form-input-div">
+                            {{form.password2}}
+                          </div>
+                          <!-- {{form.password}} -->
+                        </div>
+                        <div class="mt-24 mb-32">
+                          <button type="submit" class="button button-primary button-block" style="color: black;">
+                            Sign up
+                          </button>
+                        </div>
+                      </fieldset>
+                    </form>
+                    <div class="signin-bottom has-top-divider">
+                      <div class="pt-32 text-xs center-content text-color-low">
+                        Already have an account?
+                        <a class="func-link" href="{% url 'login' %}">Login</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
